@@ -313,12 +313,22 @@ nav a:hover {
     border: 1px solid #222;
 
     transition: 0.4s;
+
+    text-decoration: none;
+    color: white;
+
+    display: block;
+
+    cursor: pointer;
 }
 
 .project:hover {
     transform: scale(1.03);
 
     border-color: #9333ea;
+
+    box-shadow:
+        0 15px 40px #7c3aed22;
 }
 
 .project h3 {
@@ -329,6 +339,30 @@ nav a:hover {
     color: #888;
 
     line-height: 1.6;
+}
+
+.project::after {
+    content: "Open Project →";
+
+    display: block;
+
+    margin-top: 20px;
+
+    color: #a855f7;
+
+    font-size: 14px;
+
+    opacity: 0;
+
+    transform: translateY(5px);
+
+    transition: 0.3s;
+}
+
+.project:hover::after {
+    opacity: 1;
+
+    transform: translateY(0);
 }
 
 
@@ -675,11 +709,7 @@ footer {
     .hero h1 {
         font-size: 55px;
     }
-.project {
-    text-decoration: none;
-    color: white;
-    display: block;
-}
+
 }
 
 </style>
@@ -942,24 +972,31 @@ footer {
     <div class="cards">
 
 
-      <a href="cybershield.html" class="project reveal">
+        <!-- CYBERSHIELD -->
 
-    <h3>
-        CyberShield 🛡️
-    </h3>
+        <a
+            href="cybershield.html"
+            class="project reveal"
+        >
 
-    <p>
-        A conceptual cybersecurity platform
-        designed to monitor digital threats.
-    </p>
+            <h3>
+                CyberShield 🛡️
+            </h3>
 
-</a>
+            <p>
+                A conceptual cybersecurity platform
+                designed to monitor digital threats.
+            </p>
 
+        </a>
+
+
+        <!-- CLOUDCORE -->
 
         <div class="project reveal">
 
             <h3>
-                CloudCore
+                CloudCore ☁️
             </h3>
 
             <p>
@@ -970,10 +1007,12 @@ footer {
         </div>
 
 
+        <!-- NEURALAI -->
+
         <div class="project reveal">
 
             <h3>
-                NeuralAI
+                NeuralAI 🤖
             </h3>
 
             <p>
