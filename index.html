@@ -9,10 +9,6 @@
 
 <style>
 
-/* =========================
-   GLOBAL
-========================= */
-
 * {
     margin: 0;
     padding: 0;
@@ -27,23 +23,15 @@ body {
     overflow-x: hidden;
 }
 
-
-/* =========================
-   NAVBAR
-========================= */
-
 nav {
     height: 80px;
     padding: 0 8%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     background: rgba(8, 8, 8, 0.85);
     backdrop-filter: blur(15px);
-
     border-bottom: 1px solid #222;
-
     position: sticky;
     top: 0;
     z-index: 999;
@@ -74,22 +62,13 @@ nav a:hover {
     color: #a855f7;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
 .hero {
     min-height: 90vh;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     text-align: center;
-
     padding: 40px 20px;
-
     background:
         radial-gradient(
             circle at 50% 40%,
@@ -101,7 +80,6 @@ nav a:hover {
 .hero h1 {
     font-size: clamp(50px, 9vw, 100px);
     margin-bottom: 20px;
-
     animation: fadeUp 1s ease;
 }
 
@@ -111,39 +89,27 @@ nav a:hover {
 
 .hero p {
     max-width: 700px;
-
     margin: auto;
-
     color: #aaa;
-
     font-size: 20px;
     line-height: 1.6;
-
     animation: fadeUp 1.3s ease;
 }
 
 .buttons {
     margin-top: 35px;
-
     animation: fadeUp 1.6s ease;
 }
 
 .btn {
     display: inline-block;
-
     padding: 15px 28px;
     margin: 8px;
-
     border-radius: 8px;
-
     text-decoration: none;
-
     font-weight: bold;
-
     border: none;
-
     cursor: pointer;
-
     transition: 0.3s;
 }
 
@@ -154,90 +120,60 @@ nav a:hover {
 
 .primary:hover {
     transform: translateY(-5px);
-
     background: #9333ea;
-
-    box-shadow:
-        0 15px 40px #7c3aed66;
+    box-shadow: 0 15px 40px #7c3aed66;
 }
 
 .secondary {
     color: white;
-
     border: 1px solid #444;
 }
 
 .secondary:hover {
     transform: translateY(-5px);
-
     border-color: #9333ea;
 }
 
-
-/* =========================
-   STATS
-========================= */
-
 .stats {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-
     padding: 50px 8%;
-
     background: #0b0b0b;
 }
 
 .stat {
     text-align: center;
-
     padding: 30px;
-
     border: 1px solid #222;
-
     border-radius: 15px;
-
     background: #101010;
-
     transition: 0.4s;
 }
 
 .stat:hover {
     transform: translateY(-8px);
-
     border-color: #7c3aed;
 }
 
 .stat h2 {
     font-size: 40px;
-
     color: #a855f7;
 }
 
 .stat p {
     color: #777;
-
     margin-top: 8px;
 }
-
-
-/* =========================
-   SECTIONS
-========================= */
 
 .services,
 .projects {
     padding: 100px 8%;
-
     background: #0d0d0d;
 }
 
 .title {
     text-align: center;
-
     margin-bottom: 55px;
 }
 
@@ -247,88 +183,55 @@ nav a:hover {
 
 .title p {
     color: #777;
-
     margin-top: 10px;
 }
 
-
-/* =========================
-   CARDS
-========================= */
-
 .cards {
     display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 25px;
 }
 
 .card {
     padding: 35px;
-
     background: #121212;
-
     border: 1px solid #222;
-
     border-radius: 18px;
-
     transition: 0.4s;
 }
 
 .card:hover {
     transform: translateY(-12px);
-
     border-color: #7c3aed;
-
-    box-shadow:
-        0 20px 50px #000;
+    box-shadow: 0 20px 50px #000;
 }
 
 .card h3 {
     font-size: 22px;
-
     margin-bottom: 15px;
 }
 
 .card p {
     color: #888;
-
     line-height: 1.7;
 }
 
-
-/* =========================
-   PROJECTS
-========================= */
-
 .project {
     background: #121212;
-
     padding: 30px;
-
     border-radius: 15px;
-
     border: 1px solid #222;
-
     transition: 0.4s;
-
     text-decoration: none;
     color: white;
-
     display: block;
-
     cursor: pointer;
 }
 
 .project:hover {
     transform: scale(1.03);
-
     border-color: #9333ea;
-
-    box-shadow:
-        0 15px 40px #7c3aed22;
+    box-shadow: 0 15px 40px #7c3aed22;
 }
 
 .project h3 {
@@ -337,42 +240,27 @@ nav a:hover {
 
 .project p {
     color: #888;
-
     line-height: 1.6;
 }
 
 .project::after {
     content: "Open Project →";
-
     display: block;
-
     margin-top: 20px;
-
     color: #a855f7;
-
     font-size: 14px;
-
     opacity: 0;
-
     transform: translateY(5px);
-
     transition: 0.3s;
 }
 
 .project:hover::after {
     opacity: 1;
-
     transform: translateY(0);
 }
 
-
-/* =========================
-   SECURITY CENTER
-========================= */
-
 .security {
     padding: 100px 8%;
-
     background:
         radial-gradient(
             circle at 50% 20%,
@@ -383,42 +271,28 @@ nav a:hover {
 
 .security-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
 .security-card {
     padding: 30px;
-
     background: #101010;
-
     border: 1px solid #222;
-
     border-radius: 18px;
-
     transition: 0.4s;
-
     position: relative;
-
     overflow: hidden;
 }
 
 .security-card::before {
     content: "";
-
     position: absolute;
-
     width: 100%;
     height: 2px;
-
     top: 0;
     left: -100%;
-
     background: #9333ea;
-
     transition: 0.5s;
 }
 
@@ -428,16 +302,12 @@ nav a:hover {
 
 .security-card:hover {
     transform: translateY(-10px);
-
     border-color: #7c3aed;
-
-    box-shadow:
-        0 15px 40px #7c3aed22;
+    box-shadow: 0 15px 40px #7c3aed22;
 }
 
 .security-icon {
     font-size: 30px;
-
     margin-bottom: 20px;
 }
 
@@ -447,66 +317,43 @@ nav a:hover {
 
 .security-card p {
     color: #777;
-
     margin-top: 8px;
 }
 
 .status {
     color: #22c55e;
-
     display: flex;
-
     align-items: center;
-
     gap: 8px;
 }
 
 .status span {
     width: 9px;
     height: 9px;
-
     background: #22c55e;
-
     border-radius: 50%;
-
-    box-shadow:
-        0 0 12px #22c55e;
+    box-shadow: 0 0 12px #22c55e;
 }
 
 .security-number {
     font-size: 38px;
-
     font-weight: bold;
-
     color: #a855f7;
 }
 
-
-/* =========================
-   SECURITY ACTIVITY
-========================= */
-
 .security-log {
     margin-top: 35px;
-
     padding: 25px;
-
     background: #0d0d0d;
-
     border: 1px solid #222;
-
     border-radius: 15px;
-
     font-family: monospace;
-
     color: #777;
-
     overflow: hidden;
 }
 
 .security-log h3 {
     color: white;
-
     margin-bottom: 15px;
 }
 
@@ -518,168 +365,106 @@ nav a:hover {
     color: #22c55e;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
-
 .about {
     padding: 110px 8%;
-
     text-align: center;
-
     background: #080808;
 }
 
 .about h2 {
     font-size: 42px;
-
     margin-bottom: 25px;
 }
 
 .about p {
     max-width: 750px;
-
     margin: auto;
-
     color: #999;
-
     line-height: 1.8;
 }
 
-
-/* =========================
-   CONTACT
-========================= */
-
 .contact {
     padding: 100px 20px;
-
     text-align: center;
-
     background: #0d0d0d;
 }
 
 .contact h2 {
     font-size: 42px;
-
     margin-bottom: 15px;
 }
 
 .contact p {
     color: #777;
-
     margin-bottom: 30px;
 }
 
 .contact-box {
     max-width: 550px;
-
     margin: auto;
-
     display: flex;
-
     flex-direction: column;
-
     gap: 15px;
 }
 
 input,
 textarea {
     width: 100%;
-
     background: #151515;
-
     border: 1px solid #333;
-
     color: white;
-
     padding: 16px;
-
     border-radius: 8px;
-
     outline: none;
 }
 
 input:focus,
 textarea:focus {
     border-color: #8b5cf6;
-
-    box-shadow:
-        0 0 15px #7c3aed33;
+    box-shadow: 0 0 15px #7c3aed33;
 }
 
 textarea {
     height: 130px;
-
     resize: none;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
 footer {
     text-align: center;
-
     padding: 30px;
-
     color: #666;
-
     border-top: 1px solid #222;
 }
 
-
-/* =========================
-   ANIMATIONS
-========================= */
-
 .reveal {
     opacity: 0;
-
-    transform:
-        translateY(40px);
-
-    transition:
-        0.8s;
+    transform: translateY(40px);
+    transition: 0.8s;
 }
 
 .reveal.active {
     opacity: 1;
-
-    transform:
-        translateY(0);
+    transform: translateY(0);
 }
 
 @keyframes fadeUp {
 
     from {
         opacity: 0;
-
-        transform:
-            translateY(30px);
+        transform: translateY(30px);
     }
 
     to {
         opacity: 1;
-
-        transform:
-            translateY(0);
+        transform: translateY(0);
     }
 
 }
 
-
-/* =========================
-   MOBILE
-========================= */
-
 @media (max-width: 900px) {
 
     .security-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
 }
@@ -718,11 +503,6 @@ footer {
 
 <body>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <nav>
 
     <div class="logo">
@@ -734,41 +514,23 @@ footer {
 
     </div>
 
-
     <div>
 
-        <a href="#home">
-            Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#services">
-            Services
-        </a>
+        <a href="#services">Services</a>
 
-        <a href="#projects">
-            Projects
-        </a>
+        <a href="#projects">Projects</a>
 
-        <a href="#security">
-            Security
-        </a>
+        <a href="#security">Security</a>
 
-        <a href="#about">
-            About
-        </a>
+        <a href="#about">About</a>
 
-        <a href="#contact">
-            Contact
-        </a>
+        <a href="#contact">Contact</a>
 
     </div>
 
 </nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
 
 <section
     class="hero"
@@ -788,7 +550,6 @@ footer {
             and intelligent digital experiences.
         </p>
 
-
         <div class="buttons">
 
             <a
@@ -797,7 +558,6 @@ footer {
             >
                 Explore Services
             </a>
-
 
             <a
                 href="#projects"
@@ -812,18 +572,11 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     STATS
-========================= -->
-
 <section class="stats">
 
     <div class="stat">
 
-        <h2>
-            24/7
-        </h2>
+        <h2>24/7</h2>
 
         <p>
             Digital Support
@@ -831,12 +584,9 @@ footer {
 
     </div>
 
-
     <div class="stat">
 
-        <h2>
-            4+
-        </h2>
+        <h2>4+</h2>
 
         <p>
             Technology Fields
@@ -844,12 +594,9 @@ footer {
 
     </div>
 
-
     <div class="stat">
 
-        <h2>
-            ∞
-        </h2>
+        <h2>∞</h2>
 
         <p>
             Possibilities
@@ -858,11 +605,6 @@ footer {
     </div>
 
 </section>
-
-
-<!-- =========================
-     SERVICES
-========================= -->
 
 <section
     class="services"
@@ -881,9 +623,7 @@ footer {
 
     </div>
 
-
     <div class="cards">
-
 
         <div class="card reveal">
 
@@ -898,7 +638,6 @@ footer {
 
         </div>
 
-
         <div class="card reveal">
 
             <h3>
@@ -911,7 +650,6 @@ footer {
             </p>
 
         </div>
-
 
         <div class="card reveal">
 
@@ -926,7 +664,6 @@ footer {
 
         </div>
 
-
         <div class="card reveal">
 
             <h3>
@@ -940,15 +677,9 @@ footer {
 
         </div>
 
-
     </div>
 
 </section>
-
-
-<!-- =========================
-     PROJECTS
-========================= -->
 
 <section
     class="projects"
@@ -967,9 +698,7 @@ footer {
 
     </div>
 
-
     <div class="cards">
-
 
         <!-- CYBERSHIELD -->
 
@@ -989,7 +718,6 @@ footer {
 
         </a>
 
-
         <!-- CLOUDCORE -->
 
         <a
@@ -1008,10 +736,12 @@ footer {
 
         </a>
 
-
         <!-- NEURALAI -->
 
-        <div class="project reveal">
+        <a
+            href="neuralai.html"
+            class="project reveal"
+        >
 
             <h3>
                 NeuralAI 🤖
@@ -1022,17 +752,11 @@ footer {
                 and intelligent decision making.
             </p>
 
-        </div>
-
+        </a>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     SECURITY CENTER
-========================= -->
 
 <section
     class="security"
@@ -1051,9 +775,7 @@ footer {
 
     </div>
 
-
     <div class="security-grid">
-
 
         <div class="security-card reveal">
 
@@ -1075,7 +797,6 @@ footer {
 
         </div>
 
-
         <div class="security-card reveal">
 
             <div class="security-icon">
@@ -1096,7 +817,6 @@ footer {
 
         </div>
 
-
         <div class="security-card reveal">
 
             <div class="security-icon">
@@ -1116,7 +836,6 @@ footer {
             </div>
 
         </div>
-
 
         <div class="security-card reveal">
 
@@ -1141,9 +860,7 @@ footer {
 
         </div>
 
-
     </div>
-
 
     <div class="security-log reveal">
 
@@ -1175,11 +892,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     ABOUT
-========================= -->
-
 <section
     class="about"
     id="about"
@@ -1203,11 +915,6 @@ footer {
 
 </section>
 
-
-<!-- =========================
-     CONTACT
-========================= -->
-
 <section
     class="contact"
     id="contact"
@@ -1221,9 +928,7 @@ footer {
         Have a project in mind?
     </p>
 
-
     <div class="contact-box">
-
 
         <input
             type="text"
@@ -1231,19 +936,16 @@ footer {
             placeholder="Your Name"
         >
 
-
         <input
             type="email"
             id="email"
             placeholder="Your Email"
         >
 
-
         <textarea
             id="message"
             placeholder="Your Message"
         ></textarea>
-
 
         <button
             class="btn primary"
@@ -1252,15 +954,9 @@ footer {
             Send Message
         </button>
 
-
     </div>
 
 </section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
 
 <footer>
 
@@ -1268,13 +964,7 @@ footer {
 
 </footer>
 
-
 <script>
-
-
-/* =========================
-   CONTACT
-========================= */
 
 function sendMessage() {
 
@@ -1286,7 +976,6 @@ function sendMessage() {
 
     const message =
         document.getElementById("message").value;
-
 
     if (
         name === "" ||
@@ -1302,7 +991,6 @@ function sendMessage() {
 
     }
 
-
     alert(
         "Thanks " +
         name +
@@ -1311,16 +999,10 @@ function sendMessage() {
 
 }
 
-
-/* =========================
-   SCROLL REVEAL
-========================= */
-
 function revealOnScroll() {
 
     const elements =
         document.querySelectorAll(".reveal");
-
 
     elements.forEach(
         function(element) {
@@ -1330,7 +1012,6 @@ function revealOnScroll() {
 
             const screenPosition =
                 window.innerHeight - 100;
-
 
             if (
                 position < screenPosition
@@ -1347,19 +1028,12 @@ function revealOnScroll() {
 
 }
 
-
 window.addEventListener(
     "scroll",
     revealOnScroll
 );
 
-
 revealOnScroll();
-
-
-/* =========================
-   THREAT COUNTER
-========================= */
 
 let threatCount = 0;
 
@@ -1367,7 +1041,6 @@ const threatElement =
     document.getElementById(
         "threatCount"
     );
-
 
 setInterval(
     function() {
@@ -1386,7 +1059,6 @@ setInterval(
 );
 
 </script>
-
 
 </body>
 </html>
