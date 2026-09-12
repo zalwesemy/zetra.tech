@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -447,6 +448,167 @@ footer {
     transform: translateY(0);
 }
 
+/* =========================
+   ZETRA AI
+========================= */
+
+#zetraAIButton {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 5000;
+    border: 1px solid #9333ea;
+    background: linear-gradient(135deg, #7c3aed, #9333ea);
+    color: white;
+    padding: 15px 21px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 35px #7c3aed55;
+    transition: 0.3s;
+}
+
+#zetraAIButton:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 15px 45px #7c3aed88;
+}
+
+#zetraAIWindow {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    width: 370px;
+    height: 520px;
+    background: #0d0d0d;
+    border: 1px solid #333;
+    border-radius: 20px;
+    box-shadow: 0 20px 70px #000;
+    z-index: 4999;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ai-header {
+    padding: 18px 20px;
+    background: linear-gradient(
+        135deg,
+        #151515,
+        #1d0b35
+    );
+    border-bottom: 1px solid #292929;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ai-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ai-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #7c3aed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+.ai-header h3 {
+    font-size: 17px;
+}
+
+.ai-header p {
+    color: #777;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.ai-close {
+    border: none;
+    background: transparent;
+    color: #888;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.ai-close:hover {
+    color: white;
+}
+
+.ai-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ai-message {
+    max-width: 85%;
+    padding: 12px 15px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ai-message.bot {
+    align-self: flex-start;
+    background: #181818;
+    border: 1px solid #292929;
+    color: #ddd;
+}
+
+.ai-message.user {
+    align-self: flex-end;
+    background: #7c3aed;
+    color: white;
+}
+
+.ai-input-area {
+    padding: 15px;
+    border-top: 1px solid #292929;
+    display: flex;
+    gap: 10px;
+    background: #101010;
+}
+
+#aiInput {
+    flex: 1;
+    background: #181818;
+    border: 1px solid #333;
+    color: white;
+    padding: 12px 14px;
+    border-radius: 12px;
+    outline: none;
+    font-size: 14px;
+}
+
+#aiInput:focus {
+    border-color: #7c3aed;
+}
+
+#aiSend {
+    width: 45px;
+    border: none;
+    border-radius: 12px;
+    background: #7c3aed;
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+#aiSend:hover {
+    background: #9333ea;
+}
+
 @keyframes fadeUp {
 
     from {
@@ -495,6 +657,19 @@ footer {
         font-size: 55px;
     }
 
+    #zetraAIWindow {
+        right: 12px;
+        left: 12px;
+        bottom: 80px;
+        width: auto;
+        height: 500px;
+    }
+
+    #zetraAIButton {
+        right: 15px;
+        bottom: 15px;
+    }
+
 }
 
 </style>
@@ -517,15 +692,10 @@ footer {
     <div>
 
         <a href="#home">Home</a>
-
         <a href="#services">Services</a>
-
         <a href="#projects">Projects</a>
-
         <a href="#security">Security</a>
-
         <a href="#about">About</a>
-
         <a href="#contact">Contact</a>
 
     </div>
@@ -700,8 +870,6 @@ footer {
 
     <div class="cards">
 
-        <!-- CYBERSHIELD -->
-
         <a
             href="cybershield.html"
             class="project reveal"
@@ -718,8 +886,6 @@ footer {
 
         </a>
 
-        <!-- CLOUDCORE -->
-
         <a
             href="cloudcore.html"
             class="project reveal"
@@ -735,8 +901,6 @@ footer {
             </p>
 
         </a>
-
-        <!-- NEURALAI -->
 
         <a
             href="neuralai.html"
@@ -958,6 +1122,87 @@ footer {
 
 </section>
 
+<!-- =========================
+     ZETRA AI
+========================= -->
+
+<button
+    id="zetraAIButton"
+    onclick="toggleZetraAI()"
+>
+    🤖 Zetra AI
+</button>
+
+<div id="zetraAIWindow">
+
+    <div class="ai-header">
+
+        <div class="ai-header-left">
+
+            <div class="ai-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <h3>
+                    Zetra AI
+                </h3>
+
+                <p>
+                    Your ZetraTech assistant
+                </p>
+
+            </div>
+
+        </div>
+
+        <button
+            class="ai-close"
+            onclick="toggleZetraAI()"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <div
+        class="ai-messages"
+        id="aiMessages"
+    >
+
+        <div class="ai-message bot">
+
+            Hey! 👋 I'm <strong>Zetra AI</strong>.<br><br>
+
+            I can help with IT, computer science,
+            programming, cybersecurity, cloud,
+            networking and AI.
+
+        </div>
+
+    </div>
+
+    <div class="ai-input-area">
+
+        <input
+            type="text"
+            id="aiInput"
+            placeholder="Ask Zetra AI..."
+            autocomplete="off"
+        >
+
+        <button
+            id="aiSend"
+            onclick="sendAIMessage()"
+        >
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
 <footer>
 
     © 2026 ZetraTech
@@ -1058,7 +1303,121 @@ setInterval(
     3000
 );
 
+
+/* =========================
+   ZETRA AI UI
+========================= */
+
+function toggleZetraAI() {
+
+    const windowElement =
+        document.getElementById(
+            "zetraAIWindow"
+        );
+
+    if (
+        windowElement.style.display === "flex"
+    ) {
+
+        windowElement.style.display = "none";
+
+    } else {
+
+        windowElement.style.display = "flex";
+
+        document
+            .getElementById("aiInput")
+            .focus();
+
+    }
+
+}
+
+
+function addAIMessage(
+    message,
+    type
+) {
+
+    const messages =
+        document.getElementById(
+            "aiMessages"
+        );
+
+    const messageElement =
+        document.createElement("div");
+
+    messageElement.className =
+        "ai-message " + type;
+
+    messageElement.innerHTML =
+        message;
+
+    messages.appendChild(
+        messageElement
+    );
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+}
+
+
+function sendAIMessage() {
+
+    const input =
+        document.getElementById(
+            "aiInput"
+        );
+
+    const message =
+        input.value.trim();
+
+    if (message === "") {
+        return;
+    }
+
+    addAIMessage(
+        message,
+        "user"
+    );
+
+    input.value = "";
+
+    setTimeout(
+        function() {
+
+            addAIMessage(
+                "I'm currently being connected to the Zetra AI system. 🤖<br><br>My full AI capabilities will be available soon.",
+                "bot"
+            );
+
+        },
+        700
+    );
+
+}
+
+
+document
+    .getElementById("aiInput")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                sendAIMessage();
+
+            }
+
+        }
+    );
+
 </script>
 
 </body>
 </html>
+```
