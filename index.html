@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -557,6 +556,7 @@ footer {
     border-radius: 14px;
     font-size: 14px;
     line-height: 1.5;
+    white-space: pre-wrap;
 }
 
 .ai-message.bot {
@@ -607,6 +607,11 @@ footer {
 
 #aiSend:hover {
     background: #9333ea;
+}
+
+#aiSend:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 @keyframes fadeUp {
@@ -1305,7 +1310,7 @@ setInterval(
 
 
 /* =========================
-   ZETRA AI UI
+   ZETRA AI
 ========================= */
 
 function toggleZetraAI() {
@@ -1363,12 +1368,13 @@ function addAIMessage(
 }
 
 
-function sendAIMessage() {
+async function sendAIMessage() {
 
     const input =
-        document.getElementById(
-            "aiInput"
-        );
+        document.getElementById("aiInput");
+
+    const sendButton =
+        document.getElementById("aiSend");
 
     const message =
         input.value.trim();
@@ -1384,17 +1390,71 @@ function sendAIMessage() {
 
     input.value = "";
 
-    setTimeout(
-        function() {
+    sendButton.disabled = true;
 
-            addAIMessage(
-                "I'm currently being connected to the Zetra AI system. 🤖<br><br>My full AI capabilities will be available soon.",
-                "bot"
+    addAIMessage(
+        "Thinking... 🤖",
+        "bot"
+    );
+
+    const messages =
+        document.getElementById("aiMessages");
+
+    const thinkingMessage =
+        messages.lastElementChild;
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/chat",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        message: message
+                    })
+                }
             );
 
-        },
-        700
-    );
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                "Something went wrong."
+            );
+
+        }
+
+        thinkingMessage.textContent =
+            data.reply ||
+            "I couldn't generate a response.";
+
+    } catch (error) {
+
+        console.error(error);
+
+        thinkingMessage.innerHTML =
+            "Sorry, I couldn't connect to Zetra AI right now. 🤖<br><br>" +
+            "Please try again in a moment.";
+
+    } finally {
+
+        sendButton.disabled = false;
+
+        input.focus();
+
+        messages.scrollTop =
+            messages.scrollHeight;
+
+    }
 
 }
 
@@ -1420,4 +1480,3 @@ document
 
 </body>
 </html>
-```
