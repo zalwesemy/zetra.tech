@@ -23,12 +23,12 @@ export default async function handler(req, res) {
                     "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`
                 },
                 body: JSON.stringify({
-                    model: "gpt-5.6",
+                    model: "gpt-5.6-luna",
                     input: [
                         {
                             role: "system",
                             content:
-                                "You are Zetra AI, the official AI assistant for ZetraTech. Help users with IT, computer science, programming, cybersecurity, cloud computing, networking, AI, and general technology questions. Explain things clearly and safely. You can also explain ZetraTech's services and projects such as CyberShield, CloudCore, and NeuralAI."
+                                "You are Zetra AI, the official AI assistant for ZetraTech. Help users with IT, computer science, programming, cybersecurity, cloud computing, networking, AI, and technology. Explain concepts clearly and safely. You can also explain ZetraTech's services and projects, including CyberShield, CloudCore, and NeuralAI."
                         },
                         {
                             role: "user",
