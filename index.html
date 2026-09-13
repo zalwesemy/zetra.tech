@@ -3,6 +3,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ZetraTech</title>
@@ -69,12 +70,11 @@ nav a:hover {
     justify-content: center;
     text-align: center;
     padding: 40px 20px;
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            #32145e 0%,
-            #080808 45%
-        );
+    background: radial-gradient(
+        circle at 50% 40%,
+        #32145e 0%,
+        #080808 45%
+    );
 }
 
 .hero h1 {
@@ -261,12 +261,11 @@ nav a:hover {
 
 .security {
     padding: 100px 8%;
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #1d0b35 0%,
-            #080808 50%
-        );
+    background: radial-gradient(
+        circle at 50% 20%,
+        #1d0b35 0%,
+        #080808 50%
+    );
 }
 
 .security-grid {
@@ -446,6 +445,7 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* =========================
    ZETRA AI
@@ -683,6 +683,7 @@ footer {
 
 <body>
 
+
 <nav>
 
     <div class="logo">
@@ -697,26 +698,28 @@ footer {
     <div>
 
         <a href="#home">Home</a>
+
         <a href="#services">Services</a>
+
         <a href="#projects">Projects</a>
+
         <a href="#security">Security</a>
+
         <a href="#about">About</a>
+
         <a href="#contact">Contact</a>
 
     </div>
 
 </nav>
 
-<section
-    class="hero"
-    id="home"
->
+
+<section class="hero" id="home">
 
     <div>
 
         <h1>
-            Build The
-            <span>Future.</span>
+            Build The <span>Future.</span>
         </h1>
 
         <p>
@@ -746,6 +749,7 @@ footer {
     </div>
 
 </section>
+
 
 <section class="stats">
 
@@ -780,6 +784,7 @@ footer {
     </div>
 
 </section>
+
 
 <section
     class="services"
@@ -856,6 +861,7 @@ footer {
 
 </section>
 
+
 <section
     class="projects"
     id="projects"
@@ -927,6 +933,7 @@ footer {
 
 </section>
 
+
 <section
     class="security"
     id="security"
@@ -966,6 +973,7 @@ footer {
 
         </div>
 
+
         <div class="security-card reveal">
 
             <div class="security-icon">
@@ -986,6 +994,7 @@ footer {
 
         </div>
 
+
         <div class="security-card reveal">
 
             <div class="security-icon">
@@ -1005,6 +1014,7 @@ footer {
             </div>
 
         </div>
+
 
         <div class="security-card reveal">
 
@@ -1031,6 +1041,7 @@ footer {
 
     </div>
 
+
     <div class="security-log reveal">
 
         <h3>
@@ -1038,28 +1049,37 @@ footer {
         </h3>
 
         <div class="log-line">
+
             <span>[ONLINE]</span>
             Security monitoring active
+
         </div>
 
         <div class="log-line">
+
             <span>[SECURE]</span>
             Network integrity verified
+
         </div>
 
         <div class="log-line">
+
             <span>[SCAN]</span>
             Threat detection system running
+
         </div>
 
         <div class="log-line">
+
             <span>[OK]</span>
             All systems operational
+
         </div>
 
     </div>
 
 </section>
+
 
 <section
     class="about"
@@ -1075,14 +1095,15 @@ footer {
         <p>
             ZetraTech is a technology company focused
             on creating innovative digital solutions.
-            We combine software, cybersecurity, cloud
-            technology and AI to build the future of
-            digital experiences.
+            We combine software, cybersecurity,
+            cloud technology and AI to build the future
+            of digital experiences.
         </p>
 
     </div>
 
 </section>
+
 
 <section
     class="contact"
@@ -1127,6 +1148,7 @@ footer {
 
 </section>
 
+
 <!-- =========================
      ZETRA AI
 ========================= -->
@@ -1137,6 +1159,7 @@ footer {
 >
     🤖 Zetra AI
 </button>
+
 
 <div id="zetraAIWindow">
 
@@ -1171,6 +1194,7 @@ footer {
 
     </div>
 
+
     <div
         class="ai-messages"
         id="aiMessages"
@@ -1178,7 +1202,10 @@ footer {
 
         <div class="ai-message bot">
 
-            Hey! 👋 I'm <strong>Zetra AI</strong>.<br><br>
+            Hey! 👋 I'm
+            <strong>Zetra AI</strong>.
+
+            <br><br>
 
             I can help with IT, computer science,
             programming, cybersecurity, cloud,
@@ -1187,6 +1214,7 @@ footer {
         </div>
 
     </div>
+
 
     <div class="ai-input-area">
 
@@ -1208,13 +1236,16 @@ footer {
 
 </div>
 
+
 <footer>
 
     © 2026 ZetraTech
 
 </footer>
 
+
 <script>
+
 
 function sendMessage() {
 
@@ -1226,6 +1257,7 @@ function sendMessage() {
 
     const message =
         document.getElementById("message").value;
+
 
     if (
         name === "" ||
@@ -1241,6 +1273,7 @@ function sendMessage() {
 
     }
 
+
     alert(
         "Thanks " +
         name +
@@ -1249,10 +1282,12 @@ function sendMessage() {
 
 }
 
+
 function revealOnScroll() {
 
     const elements =
         document.querySelectorAll(".reveal");
+
 
     elements.forEach(
         function(element) {
@@ -1262,6 +1297,7 @@ function revealOnScroll() {
 
             const screenPosition =
                 window.innerHeight - 100;
+
 
             if (
                 position < screenPosition
@@ -1278,24 +1314,31 @@ function revealOnScroll() {
 
 }
 
+
 window.addEventListener(
     "scroll",
     revealOnScroll
 );
 
+
 revealOnScroll();
 
+
 let threatCount = 0;
+
 
 const threatElement =
     document.getElementById(
         "threatCount"
     );
 
+
 setInterval(
     function() {
 
-        if (threatCount < 3) {
+        if (
+            threatCount < 3
+        ) {
 
             threatCount++;
 
@@ -1310,8 +1353,9 @@ setInterval(
 
 
 /* =========================
-   ZETRA AI
+   ZETRA AI UI
 ========================= */
+
 
 function toggleZetraAI() {
 
@@ -1320,15 +1364,19 @@ function toggleZetraAI() {
             "zetraAIWindow"
         );
 
+
     if (
         windowElement.style.display === "flex"
     ) {
 
-        windowElement.style.display = "none";
+        windowElement.style.display =
+            "none";
 
     } else {
 
-        windowElement.style.display = "flex";
+        windowElement.style.display =
+            "flex";
+
 
         document
             .getElementById("aiInput")
@@ -1349,18 +1397,25 @@ function addAIMessage(
             "aiMessages"
         );
 
+
     const messageElement =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     messageElement.className =
         "ai-message " + type;
 
+
     messageElement.innerHTML =
         message;
+
 
     messages.appendChild(
         messageElement
     );
+
 
     messages.scrollTop =
         messages.scrollHeight;
@@ -1368,63 +1423,96 @@ function addAIMessage(
 }
 
 
+/* =========================
+   REAL ZETRA AI CONNECTION
+========================= */
+
+
 async function sendAIMessage() {
 
     const input =
-        document.getElementById("aiInput");
+        document.getElementById(
+            "aiInput"
+        );
+
 
     const sendButton =
-        document.getElementById("aiSend");
+        document.getElementById(
+            "aiSend"
+        );
+
 
     const message =
         input.value.trim();
 
-    if (message === "") {
+
+    if (
+        message === ""
+    ) {
+
         return;
+
     }
+
 
     addAIMessage(
         message,
         "user"
     );
 
+
     input.value = "";
 
-    sendButton.disabled = true;
+
+    sendButton.disabled =
+        true;
+
 
     addAIMessage(
         "Thinking... 🤖",
         "bot"
     );
 
+
     const messages =
-        document.getElementById("aiMessages");
+        document.getElementById(
+            "aiMessages"
+        );
+
 
     const thinkingMessage =
         messages.lastElementChild;
 
+
     try {
+
 
         const response =
             await fetch(
-                "/api/chat",
+                "https://zetra-t7tuwtr51-zetra3.vercel.app/api/chat",
                 {
                     method: "POST",
 
                     headers: {
-                        "Content-Type": "application/json"
+                        "Content-Type":
+                            "application/json"
                     },
 
                     body: JSON.stringify({
-                        message: message
+                        message:
+                            message
                     })
                 }
             );
 
+
         const data =
             await response.json();
 
-        if (!response.ok) {
+
+        if (
+            !response.ok
+        ) {
 
             throw new Error(
                 data.error ||
@@ -1433,23 +1521,35 @@ async function sendAIMessage() {
 
         }
 
+
         thinkingMessage.textContent =
             data.reply ||
             "I couldn't generate a response.";
 
+
     } catch (error) {
 
-        console.error(error);
+
+        console.error(
+            "Zetra AI Error:",
+            error
+        );
+
 
         thinkingMessage.innerHTML =
             "Sorry, I couldn't connect to Zetra AI right now. 🤖<br><br>" +
             "Please try again in a moment.";
 
+
     } finally {
 
-        sendButton.disabled = false;
+
+        sendButton.disabled =
+            false;
+
 
         input.focus();
+
 
         messages.scrollTop =
             messages.scrollHeight;
@@ -1475,6 +1575,7 @@ document
 
         }
     );
+
 
 </script>
 
