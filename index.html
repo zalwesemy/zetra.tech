@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 
 <meta
@@ -34,18 +33,26 @@
     --purple2: #a855f7;
     --purple3: #c084fc;
 
+    --pink: #ff4fa3;
+    --pink2: #ff6fbd;
+
     --text: #f5f5f7;
     --muted: #92929d;
 
     --border: rgba(255,255,255,.08);
 
     --green: #22c55e;
-    --red: #ef4444;
     --yellow: #eab308;
 }
 
+
+/* =========================
+   GLOBAL
+========================= */
+
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -131,12 +138,22 @@ nav ul {
 
     align-items: center;
 
-    gap: 25px;
+    gap: 6px;
 
     list-style: none;
 }
 
+nav li {
+    position: relative;
+}
+
 nav a {
+
+    display: block;
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
 
     color: #aaa;
 
@@ -144,27 +161,45 @@ nav a {
 
     font-size: 13px;
 
-    transition: .25s;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
 }
 
 nav a:hover {
+
     color: white;
+
+    background:
+        rgba(255,255,255,.04);
 }
 
-.nav-ai {
 
-    padding:
-        9px 14px;
+/* ACTIVE TAB */
 
-    border-radius: 9px;
+nav a.active {
 
-    color: white !important;
+    color: white;
 
     background:
         linear-gradient(
             135deg,
-            var(--purple),
-            var(--purple2)
+            var(--pink),
+            var(--pink2)
+        );
+
+    box-shadow:
+        0 6px 22px
+        rgba(255,79,163,.22);
+}
+
+nav a.active:hover {
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink),
+            var(--pink2)
         );
 }
 
@@ -1213,7 +1248,7 @@ footer b {
 
 
 /* =========================
-   ANIMATION
+   SCAN ANIMATION
 ========================= */
 
 .scanning {
@@ -1321,7 +1356,6 @@ footer b {
         padding:
             55px 0;
     }
-
 }
 
 </style>
@@ -1355,31 +1389,51 @@ footer b {
     <ul>
 
         <li>
-            <a href="#dashboard">
+            <a
+                href="#dashboard"
+                class="nav-link active"
+                data-section="dashboard"
+            >
                 Dashboard
             </a>
         </li>
 
         <li>
-            <a href="#device">
+            <a
+                href="#device"
+                class="nav-link"
+                data-section="device"
+            >
                 Device
             </a>
         </li>
 
         <li>
-            <a href="#protection">
+            <a
+                href="#protection"
+                class="nav-link"
+                data-section="protection"
+            >
                 Protection
             </a>
         </li>
 
         <li>
-            <a href="#ecosystem">
+            <a
+                href="#ecosystem"
+                class="nav-link"
+                data-section="ecosystem"
+            >
                 Ecosystem
             </a>
         </li>
 
         <li>
-            <a href="#network">
+            <a
+                href="#network"
+                class="nav-link"
+                data-section="network"
+            >
                 Network
             </a>
         </li>
@@ -1387,14 +1441,19 @@ footer b {
         <li>
             <a
                 href="#ai"
-                class="nav-ai"
+                class="nav-link"
+                data-section="ai"
             >
                 Zetra AI
             </a>
         </li>
 
         <li>
-            <a href="#about">
+            <a
+                href="#about"
+                class="nav-link"
+                data-section="about"
+            >
                 Who Are We?
             </a>
         </li>
@@ -1492,7 +1551,6 @@ footer b {
 
 
     <div class="dashboard">
-
 
         <div class="card security-card">
 
@@ -1676,7 +1734,6 @@ footer b {
 
         </div>
 
-
     </div>
 
 </section>
@@ -1706,7 +1763,6 @@ footer b {
 
 
     <div class="details">
-
 
         <div class="detail-box">
 
@@ -2066,8 +2122,6 @@ footer b {
     <div class="ecosystem">
 
 
-        <!-- CYBERSHIELD -->
-
         <a
             href="cybershield.html"
             class="product-card"
@@ -2093,8 +2147,6 @@ footer b {
         </a>
 
 
-        <!-- CLOUDCORE -->
-
         <a
             href="cloudcore.html"
             class="product-card"
@@ -2119,8 +2171,6 @@ footer b {
 
         </a>
 
-
-        <!-- NEURALAI -->
 
         <a
             href="neuralai.html"
@@ -2362,7 +2412,6 @@ footer b {
 <footer>
 
     <b>ZetraTech</b>
-
     — Device Intelligence & Protection
 
     <br>
@@ -2378,13 +2427,108 @@ footer b {
 
 <script>
 
+
+/* =========================
+   NAVBAR ACTIVE TAB
+========================= */
+
+const navLinks =
+    document.querySelectorAll(
+        ".nav-link"
+    );
+
+const sections =
+    document.querySelectorAll(
+        "main section"
+    );
+
+
+/* Click */
+
+navLinks.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        function() {
+
+            navLinks.forEach(
+                item =>
+                    item.classList.remove(
+                        "active"
+                    )
+            );
+
+            this.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* Scroll */
+
+const observer =
+    new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    const id =
+                        entry.target.id;
+
+
+                    navLinks.forEach(
+                        link => {
+
+                            link.classList.toggle(
+
+                                "active",
+
+                                link.dataset.section === id
+
+                            );
+
+                        }
+                    );
+
+                }
+
+            });
+
+        },
+
+        {
+            rootMargin:
+                "-25% 0px -60% 0px",
+
+            threshold: 0
+        }
+
+    );
+
+
+sections.forEach(
+    section =>
+        observer.observe(section)
+);
+
+
 /* =========================
    DEVICE INFORMATION
 ========================= */
 
 function detectOS() {
 
-    const ua = navigator.userAgent;
+    const ua =
+        navigator.userAgent;
 
     if (/Windows/i.test(ua))
         return "Windows";
@@ -2410,26 +2554,20 @@ function detectBrowser() {
     const ua =
         navigator.userAgent;
 
-    if (
-        ua.includes("Edg/")
-    )
+    if (ua.includes("Edg/"))
         return "Microsoft Edge";
 
     if (
-        ua.includes("Chrome/")
-        &&
+        ua.includes("Chrome/") &&
         !ua.includes("Edg/")
     )
         return "Google Chrome";
 
-    if (
-        ua.includes("Firefox/")
-    )
+    if (ua.includes("Firefox/"))
         return "Mozilla Firefox";
 
     if (
-        ua.includes("Safari/")
-        &&
+        ua.includes("Safari/") &&
         !ua.includes("Chrome/")
     )
         return "Safari";
@@ -2443,11 +2581,11 @@ function detectDeviceType() {
     const ua =
         navigator.userAgent;
 
-    if (/Mobi|Android/i.test(ua))
-        return "Mobile";
-
     if (/Tablet|iPad/i.test(ua))
         return "Tablet";
+
+    if (/Mobi|Android/i.test(ua))
+        return "Mobile";
 
     return "Desktop";
 }
@@ -2617,8 +2755,6 @@ async function scanDevice() {
             : "Disabled";
 
 
-    /* Battery */
-
     if (
         "getBattery"
         in navigator
@@ -2659,8 +2795,6 @@ async function scanDevice() {
 
     }
 
-
-    /* Security */
 
     const https =
         location.protocol ===
@@ -2885,8 +3019,6 @@ async function sendMessage() {
         return;
 
 
-    /* User message */
-
     const userMessage =
         document.createElement(
             "div"
@@ -2909,8 +3041,6 @@ async function sendMessage() {
 
     button.innerText = "…";
 
-
-    /* Loading */
 
     const loading =
         document.createElement(
@@ -3060,5 +3190,4 @@ document.getElementById(
 
 
 </body>
-
 </html>
