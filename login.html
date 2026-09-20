@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZetraTech | Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Background glow */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #7c3aed;
+            opacity: 0.12;
+            filter: blur(140px);
+            border-radius: 50%;
+            top: -150px;
+            left: -100px;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #9333ea;
+            opacity: 0.10;
+            filter: blur(140px);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -100px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Logo */
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo a {
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #a855f7;
+        }
+
+        .tagline {
+            color: #888;
+            font-size: 13px;
+            margin-top: 7px;
+        }
+
+        /* Login box */
+
+        .login-box {
+            background: rgba(15, 15, 15, 0.92);
+            border: 1px solid #252525;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow:
+                0 0 50px rgba(124, 58, 237, 0.08),
+                0 20px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+        }
+
+        .login-box h1 {
+            font-size: 27px;
+            margin-bottom: 8px;
+        }
+
+        .login-description {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 28px;
+        }
+
+        /* Inputs */
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #ccc;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 15px;
+            background: #0b0b0b;
+            border: 1px solid #292929;
+            border-radius: 10px;
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+        }
+
+        .input-group input::placeholder {
+            color: #555;
+        }
+
+        /* Options */
+
+        .login-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #888;
+        }
+
+        .remember input {
+            accent-color: #7c3aed;
+        }
+
+        .forgot {
+            color: #a855f7;
+            text-decoration: none;
+        }
+
+        .forgot:hover {
+            color: #c084fc;
+        }
+
+        /* Login button */
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(
+                135deg,
+                #7c3aed,
+                #9333ea
+            );
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+        }
+
+        /* Divider */
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 25px 0;
+            color: #555;
+            font-size: 12px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            height: 1px;
+            background: #292929;
+            flex: 1;
+        }
+
+        /* Demo button */
+
+        .demo-button {
+            width: 100%;
+            padding: 13px;
+            border-radius: 10px;
+            border: 1px solid #303030;
+            background: #101010;
+            color: #ddd;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .demo-button:hover {
+            border-color: #7c3aed;
+            color: white;
+        }
+
+        /* Signup */
+
+        .signup {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+        }
+
+        .signup a {
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Back */
+
+        .back-home {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-home a {
+            color: #666;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .back-home a:hover {
+            color: white;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 500px) {
+
+            .login-container {
+                padding: 18px;
+            }
+
+            .login-box {
+                padding: 27px 22px;
+            }
+
+            .logo a {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <a href="index.html">
+                Zetra<span>Tech</span>
+            </a>
+
+            <div class="tagline">
+                Technology. Security. Innovation.
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div class="login-box">
+
+            <h1>Welcome back</h1>
+
+            <p class="login-description">
+                Sign in to access your ZetraTech account.
+            </p>
+
+
+            <form>
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="you@example.com"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                    >
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember">
+
+                        <input type="checkbox">
+
+                        Remember me
+
+                    </label>
+
+
+                    <a href="#" class="forgot">
+                        Forgot password?
+                    </a>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="login-button"
+                >
+                    Sign In
+                </button>
+
+            </form>
+
+
+            <div class="divider">
+                OR
+            </div>
+
+
+            <button
+                type="button"
+                class="demo-button"
+            >
+                Continue with Demo
+            </button>
+
+
+            <div class="signup">
+
+                Don't have an account?
+
+                <a href="#">
+                    Create one
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="back-home">
+
+            <a href="index.html">
+                ← Back to ZetraTech
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
