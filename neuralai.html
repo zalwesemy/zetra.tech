@@ -1,208 +1,1433 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>NeuralAI | ZetraTech</title>
+  <title>NeuralAI | ZetraTech</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <style>
 
-        body {
-            background: #080808;
-            color: white;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        nav {
-            height: 70px;
-            padding: 0 8%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(10,10,10,0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #222;
-        }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #050505;
+      color: white;
+      overflow-x: hidden;
+    }
 
-        nav img {
-            width: 150px;
-        }
+    /* NAVBAR */
 
-        nav a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 14px;
-        }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
 
-        nav a:hover {
-            color: #a855f7;
-        }
+      width: 100%;
+      height: 72px;
 
-        .hero {
-            text-align: center;
-            padding: 90px 20px 60px;
-        }
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-        .hero h1 {
-            font-size: 58px;
-            margin-bottom: 20px;
-            background: linear-gradient(90deg, #a855f7, #7c3aed);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
+      padding: 0 6%;
 
-        .hero p {
-            color: #aaa;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.7;
-        }
+      background: rgba(5, 5, 5, 0.94);
+      backdrop-filter: blur(15px);
 
-        .dashboard {
-            width: 85%;
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
+      border-bottom: 1px solid rgba(124, 58, 237, 0.25);
 
-        .card {
-            background: #111;
-            border: 1px solid #242424;
-            border-radius: 16px;
-            padding: 30px;
-            transition: 0.3s;
-        }
+      z-index: 9999;
+    }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #9333ea;
-            box-shadow: 0 15px 40px #7c3aed22;
-        }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-        .card h2 {
-            margin-bottom: 12px;
-            color: #c084fc;
-        }
+      color: white;
+      text-decoration: none;
 
-        .card p {
-            color: #999;
-            line-height: 1.6;
-        }
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-        .status {
-            margin-top: 20px;
-            display: inline-block;
-            padding: 8px 14px;
-            border-radius: 20px;
-            background: #162016;
-            color: #6ee7b7;
-            font-size: 13px;
-        }
+    .logo img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
 
-        .bar {
-            height: 8px;
-            background: #222;
-            border-radius: 10px;
-            margin-top: 15px;
-            overflow: hidden;
-        }
+    .logo span {
+      color: #a855f7;
+    }
 
-        .bar span {
-            display: block;
-            height: 100%;
-            background: linear-gradient(90deg, #7c3aed, #c084fc);
-            border-radius: 10px;
-        }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 60px 20px 30px;
-            color: #666;
-        }
+    .nav-links a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
 
-        @media (max-width: 700px) {
-            .dashboard {
-                grid-template-columns: 1fr;
-                width: 90%;
-            }
+      transition: 0.25s;
+    }
 
-            .hero h1 {
-                font-size: 42px;
-            }
-        }
-    </style>
+    .nav-links a:hover {
+      color: #a855f7;
+    }
+
+    .language-button {
+      padding: 9px 13px;
+
+      background: transparent;
+
+      border: 1px solid #333;
+      border-radius: 8px;
+
+      color: #ccc;
+
+      cursor: pointer;
+
+      font-size: 13px;
+
+      transition: 0.25s;
+    }
+
+    .language-button:hover {
+      border-color: #8b5cf6;
+      color: white;
+    }
+
+    .login-button {
+      padding: 10px 18px;
+
+      background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea
+      );
+
+      border-radius: 8px;
+
+      color: white !important;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 120px 20px 80px;
+
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 550px;
+      height: 550px;
+
+      background: #7c3aed;
+
+      filter: blur(200px);
+
+      opacity: 0.12;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 950px;
+    }
+
+    .eyebrow {
+      color: #a855f7;
+
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(55px, 9vw, 100px);
+
+      line-height: 1;
+
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #a855f7;
+    }
+
+    .hero p {
+      color: #999;
+
+      font-size: 18px;
+
+      max-width: 700px;
+
+      margin: auto;
+
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      margin-top: 35px;
+
+      display: flex;
+
+      justify-content: center;
+
+      gap: 15px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 13px 24px;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      transition: 0.25s;
+    }
+
+    .primary-btn {
+      background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #9333ea
+      );
+
+      color: white;
+    }
+
+    .secondary-btn {
+      border: 1px solid #333;
+
+      color: #ccc;
+    }
+
+    .primary-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* AI MONITOR */
+
+    .monitor-section {
+      padding: 40px 7% 110px;
+    }
+
+    .monitor {
+      max-width: 1050px;
+
+      margin: auto;
+
+      padding: 35px;
+
+      background: linear-gradient(
+        145deg,
+        #101010,
+        #080808
+      );
+
+      border: 1px solid #222;
+
+      border-radius: 20px;
+
+      box-shadow:
+        0 0 50px rgba(124,58,237,0.08);
+    }
+
+    .monitor-header {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      margin-bottom: 30px;
+    }
+
+    .monitor-header h2 {
+      font-size: 24px;
+    }
+
+    .online {
+      color: #a855f7;
+
+      font-size: 13px;
+
+      font-weight: bold;
+    }
+
+    .ai-stats {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 18px;
+    }
+
+    .ai-stat {
+      padding: 25px;
+
+      background: #0b0b0b;
+
+      border: 1px solid #222;
+
+      border-radius: 14px;
+    }
+
+    .ai-stat .number {
+      font-size: 30px;
+
+      font-weight: bold;
+
+      color: #a855f7;
+
+      margin-bottom: 8px;
+    }
+
+    .ai-stat p {
+      color: #777;
+
+      font-size: 13px;
+    }
+
+    /* SECTIONS */
+
+    section:not(.hero) {
+      padding: 110px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+
+      margin-bottom: 12px;
+    }
+
+    .section-title h2 span {
+      color: #a855f7;
+    }
+
+    .section-title p {
+      color: #777;
+    }
+
+    /* FEATURES */
+
+    .feature-grid {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .feature {
+      padding: 30px;
+
+      background: #0b0b0b;
+
+      border: 1px solid #222;
+
+      border-radius: 16px;
+
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+
+      border-color: #7c3aed;
+
+      box-shadow:
+        0 0 25px rgba(124,58,237,0.12);
+    }
+
+    .feature-icon {
+      font-size: 32px;
+
+      margin-bottom: 20px;
+    }
+
+    .feature h3 {
+      margin-bottom: 12px;
+    }
+
+    .feature p {
+      color: #777;
+
+      line-height: 1.7;
+
+      font-size: 14px;
+    }
+
+    /* AI CAPABILITIES */
+
+    .capabilities {
+      max-width: 1000px;
+
+      margin: auto;
+    }
+
+    .capability {
+      margin-bottom: 25px;
+    }
+
+    .capability-top {
+      display: flex;
+
+      justify-content: space-between;
+
+      margin-bottom: 9px;
+    }
+
+    .capability-top span:last-child {
+      color: #a855f7;
+
+      font-weight: bold;
+    }
+
+    .bar {
+      height: 8px;
+
+      background: #1b1b1b;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+
+      background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #a855f7
+      );
+
+      border-radius: 20px;
+    }
+
+    /* SECURITY */
+
+    .security-box {
+      max-width: 900px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .security-item {
+      padding: 30px;
+
+      text-align: center;
+
+      background: #0b0b0b;
+
+      border: 1px solid #222;
+
+      border-radius: 15px;
+    }
+
+    .security-item .check {
+      font-size: 28px;
+
+      color: #a855f7;
+
+      margin-bottom: 12px;
+    }
+
+    .security-item h3 {
+      margin-bottom: 8px;
+    }
+
+    .security-item p {
+      color: #777;
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+
+      max-width: 850px;
+
+      margin: auto;
+
+      padding: 60px 30px;
+
+      background: linear-gradient(
+        145deg,
+        #110b1c,
+        #090909
+      );
+
+      border: 1px solid #29202f;
+
+      border-radius: 20px;
+    }
+
+    .cta h2 {
+      font-size: 40px;
+
+      margin-bottom: 15px;
+    }
+
+    .cta h2 span {
+      color: #a855f7;
+    }
+
+    .cta p {
+      color: #777;
+
+      line-height: 1.7;
+
+      margin-bottom: 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 7%;
+
+      text-align: center;
+
+      border-top: 1px solid #1c1c1c;
+
+      color: #555;
+
+      font-size: 13px;
+    }
+
+    /* RTL */
+
+    body.rtl {
+      direction: rtl;
+    }
+
+    body.rtl nav {
+      direction: rtl;
+    }
+
+    body.rtl .nav-links {
+      direction: rtl;
+    }
+
+    body.rtl .feature,
+    body.rtl .ai-stat {
+      text-align: right;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .ai-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .security-box {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .nav-links a:not(.login-button),
+      .language-button {
+        display: none;
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .ai-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .monitor {
+        padding: 25px;
+      }
+
+      .monitor-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
 
-<nav>
-    <img src="zetratech-logo.png" alt="ZetraTech Logo">
-    <a href="index.html">← Back to ZetraTech</a>
-</nav>
+  <!-- NAVBAR -->
 
-<section class="hero">
-    <h1>NeuralAI 🤖</h1>
+  <nav>
 
-    <p>
-        An intelligent AI platform designed to automate
-        complex processes, analyze data, and support
-        smarter digital decision-making.
-    </p>
-</section>
+    <a href="index.html" class="logo">
 
-<section class="dashboard">
+      <img
+        src="zetratech-logo.png"
+        alt="ZetraTech Logo"
+      >
 
-    <div class="card">
-        <h2>AI Status</h2>
-        <p>NeuralAI core systems are operating normally.</p>
-        <span class="status">● Operational</span>
+      Zetra<span>Tech</span>
+
+    </a>
+
+    <div class="nav-links">
+
+      <a
+        href="index.html#home"
+        data-en="Home"
+        data-ar="الرئيسية"
+      >
+        Home
+      </a>
+
+      <a
+        href="index.html#services"
+        data-en="Services"
+        data-ar="الخدمات"
+      >
+        Services
+      </a>
+
+      <a
+        href="index.html#products"
+        data-en="Products"
+        data-ar="المنتجات"
+      >
+        Products
+      </a>
+
+      <a
+        href="security.html"
+        data-en="Security"
+        data-ar="الأمان"
+      >
+        Security
+      </a>
+
+      <a
+        href="index.html#about"
+        data-en="About"
+        data-ar="من نحن"
+      >
+        About
+      </a>
+
+      <a
+        href="index.html#contact"
+        data-en="Contact"
+        data-ar="تواصل معنا"
+      >
+        Contact
+      </a>
+
+      <button
+        class="language-button"
+        onclick="toggleLanguage()"
+        id="languageButton"
+      >
+        العربية
+      </button>
+
+      <a
+        href="login.html"
+        class="login-button"
+        data-en="Login"
+        data-ar="تسجيل الدخول"
+      >
+        Login
+      </a>
+
     </div>
 
-    <div class="card">
-        <h2>Model Performance</h2>
-        <p>Current AI model efficiency</p>
+  </nav>
 
-        <div class="bar">
-            <span style="width: 94%;"></span>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div
+        class="eyebrow"
+        data-en="ZETRATECH AI PLATFORM"
+        data-ar="منصة ZETRATECH للذكاء الاصطناعي"
+      >
+        ZETRATECH AI PLATFORM
+      </div>
+
+      <h1>
+        <span
+          data-en="Think."
+          data-ar="فكّر."
+        >
+          Think.
+        </span>
+
+        <br>
+
+        <span
+          data-en="Create."
+          data-ar="أنشئ."
+        >
+          Create.
+        </span>
+
+        <br>
+
+        <span
+          data-en="Evolve."
+          data-ar="تطوّر."
+        >
+          Evolve.
+        </span>
+      </h1>
+
+      <p
+        data-en="NeuralAI is ZetraTech's intelligent AI platform built for automation, analysis and next-generation digital solutions."
+        data-ar="NeuralAI هي منصة الذكاء الاصطناعي من ZetraTech، مصممة للأتمتة والتحليل وحلول الجيل القادم الرقمية."
+      >
+        NeuralAI is ZetraTech's intelligent AI platform
+        built for automation, analysis and
+        next-generation digital solutions.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href="#features"
+          class="primary-btn"
+          data-en="Explore NeuralAI"
+          data-ar="استكشف NeuralAI"
+        >
+          Explore NeuralAI
+        </a>
+
+        <a
+          href="dashboard.html"
+          class="secondary-btn"
+          data-en="Open Dashboard"
+          data-ar="فتح لوحة التحكم"
+        >
+          Open Dashboard
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AI MONITOR -->
+
+  <section class="monitor-section">
+
+    <div class="monitor">
+
+      <div class="monitor-header">
+
+        <h2
+          data-en="NeuralAI Intelligence Monitor"
+          data-ar="مراقبة ذكاء NeuralAI"
+        >
+          NeuralAI Intelligence Monitor
+        </h2>
+
+        <div
+          class="online"
+          data-en="● AI SYSTEM ONLINE"
+          data-ar="● نظام الذكاء الاصطناعي متصل"
+        >
+          ● AI SYSTEM ONLINE
         </div>
 
-        <p style="margin-top:10px;">94% efficiency</p>
-    </div>
+      </div>
 
-    <div class="card">
-        <h2>Data Processing</h2>
-        <p>NeuralAI is processing large amounts of structured and unstructured data.</p>
+      <div class="ai-stats">
 
-        <div class="bar">
-            <span style="width: 78%;"></span>
+        <div class="ai-stat">
+
+          <div class="number">
+            99.8%
+          </div>
+
+          <p
+            data-en="AI Accuracy"
+            data-ar="دقة الذكاء الاصطناعي"
+          >
+            AI Accuracy
+          </p>
+
         </div>
 
-        <p style="margin-top:10px;">78% capacity</p>
+        <div class="ai-stat">
+
+          <div class="number">
+            24/7
+          </div>
+
+          <p
+            data-en="AI Processing"
+            data-ar="معالجة مستمرة"
+          >
+            AI Processing
+          </p>
+
+        </div>
+
+        <div class="ai-stat">
+
+          <div class="number">
+            12K+
+          </div>
+
+          <p
+            data-en="Tasks Processed"
+            data-ar="المهام المعالجة"
+          >
+            Tasks Processed
+          </p>
+
+        </div>
+
+        <div class="ai-stat">
+
+          <div class="number">
+            ACTIVE
+          </div>
+
+          <p
+            data-en="Learning Engine"
+            data-ar="محرك التعلم"
+          >
+            Learning Engine
+          </p>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="card">
-        <h2>Automation Engine</h2>
-        <p>
-            Intelligent automation helps organizations
-            reduce repetitive tasks and improve productivity.
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section id="features">
+
+    <div class="section-title">
+
+      <h2>
+        <span
+          data-en="AI Capabilities"
+          data-ar="قدرات الذكاء الاصطناعي"
+        >
+          AI Capabilities
+        </span>
+      </h2>
+
+      <p
+        data-en="Powerful intelligence designed for modern digital environments."
+        data-ar="ذكاء قوي مصمم للبيئات الرقمية الحديثة."
+      >
+        Powerful intelligence designed for
+        modern digital environments.
+      </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🧠
+        </div>
+
+        <h3
+          data-en="Intelligent Analysis"
+          data-ar="التحليل الذكي"
+        >
+          Intelligent Analysis
+        </h3>
+
+        <p
+          data-en="Analyze large amounts of information and turn complex data into useful insights."
+          data-ar="تحليل كميات كبيرة من المعلومات وتحويل البيانات المعقدة إلى رؤى مفيدة."
+        >
+          Analyze large amounts of information
+          and turn complex data into useful insights.
         </p>
 
-        <span class="status">● Active</span>
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3
+          data-en="Smart Automation"
+          data-ar="الأتمتة الذكية"
+        >
+          Smart Automation
+        </h3>
+
+        <p
+          data-en="Automate repetitive processes and help teams work faster and smarter."
+          data-ar="أتمتة العمليات المتكررة ومساعدة الفرق على العمل بشكل أسرع وأكثر ذكاءً."
+        >
+          Automate repetitive processes and
+          help teams work faster and smarter.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          📊
+        </div>
+
+        <h3
+          data-en="Predictive Analytics"
+          data-ar="التحليلات التنبؤية"
+        >
+          Predictive Analytics
+        </h3>
+
+        <p
+          data-en="Use intelligent models to identify patterns and support better digital decisions."
+          data-ar="استخدام نماذج ذكية لاكتشاف الأنماط ودعم القرارات الرقمية بشكل أفضل."
+        >
+          Use intelligent models to identify
+          patterns and support better digital decisions.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🔗
+        </div>
+
+        <h3
+          data-en="API Integration"
+          data-ar="تكامل API"
+        >
+          API Integration
+        </h3>
+
+        <p
+          data-en="Connect NeuralAI with applications, platforms and digital services."
+          data-ar="ربط NeuralAI بالتطبيقات والمنصات والخدمات الرقمية."
+        >
+          Connect NeuralAI with applications,
+          platforms and digital services.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🛡️
+        </div>
+
+        <h3
+          data-en="Secure AI"
+          data-ar="ذكاء اصطناعي آمن"
+        >
+          Secure AI
+        </h3>
+
+        <p
+          data-en="Designed with security and controlled access in mind for digital environments."
+          data-ar="مصمم مع التركيز على الأمان والتحكم في الوصول للبيئات الرقمية."
+        >
+          Designed with security and controlled
+          access in mind for digital environments.
+        </p>
+
+      </div>
+
+      <div class="feature">
+
+        <div class="feature-icon">
+          🌐
+        </div>
+
+        <h3
+          data-en="Scalable Intelligence"
+          data-ar="ذكاء قابل للتوسع"
+        >
+          Scalable Intelligence
+        </h3>
+
+        <p
+          data-en="Built to support growing workloads and future AI-powered applications."
+          data-ar="مصمم لدعم أعباء العمل المتزايدة وتطبيقات الذكاء الاصطناعي المستقبلية."
+        >
+          Built to support growing workloads
+          and future AI-powered applications.
+        </p>
+
+      </div>
+
     </div>
 
-</section>
+  </section>
 
-<footer>
-    © 2026 ZetraTech — NeuralAI
-</footer>
+
+  <!-- CAPABILITIES -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        <span
+          data-en="NeuralAI Engine"
+          data-ar="محرك NeuralAI"
+        >
+          NeuralAI Engine
+        </span>
+      </h2>
+
+      <p
+        data-en="Core intelligence systems powering the platform."
+        data-ar="أنظمة الذكاء الأساسية التي تشغل المنصة."
+      >
+        Core intelligence systems powering
+        the platform.
+      </p>
+
+    </div>
+
+    <div class="capabilities">
+
+      <div class="capability">
+
+        <div class="capability-top">
+
+          <span
+            data-en="Data Processing"
+            data-ar="معالجة البيانات"
+          >
+            Data Processing
+          </span>
+
+          <span>
+            96%
+          </span>
+
+        </div>
+
+        <div class="bar">
+          <div
+            class="bar-fill"
+            style="width:96%"
+          ></div>
+        </div>
+
+      </div>
+
+
+      <div class="capability">
+
+        <div class="capability-top">
+
+          <span
+            data-en="Pattern Recognition"
+            data-ar="التعرف على الأنماط"
+          >
+            Pattern Recognition
+          </span>
+
+          <span>
+            94%
+          </span>
+
+        </div>
+
+        <div class="bar">
+          <div
+            class="bar-fill"
+            style="width:94%"
+          ></div>
+        </div>
+
+      </div>
+
+
+      <div class="capability">
+
+        <div class="capability-top">
+
+          <span
+            data-en="Automation"
+            data-ar="الأتمتة"
+          >
+            Automation
+          </span>
+
+          <span>
+            98%
+          </span>
+
+        </div>
+
+        <div class="bar">
+          <div
+            class="bar-fill"
+            style="width:98%"
+          ></div>
+        </div>
+
+      </div>
+
+
+      <div class="capability">
+
+        <div class="capability-top">
+
+          <span
+            data-en="Decision Support"
+            data-ar="دعم القرارات"
+          >
+            Decision Support
+          </span>
+
+          <span>
+            91%
+          </span>
+
+        </div>
+
+        <div class="bar">
+          <div
+            class="bar-fill"
+            style="width:91%"
+          ></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SECURITY -->
+
+  <section>
+
+    <div class="section-title">
+
+      <h2>
+        <span
+          data-en="Built With Security"
+          data-ar="مصمم مع الأمان"
+        >
+          Built With Security
+        </span>
+      </h2>
+
+      <p
+        data-en="NeuralAI is designed to operate inside secure digital environments."
+        data-ar="تم تصميم NeuralAI للعمل داخل بيئات رقمية آمنة."
+      >
+        NeuralAI is designed to operate inside
+        secure digital environments.
+      </p>
+
+    </div>
+
+    <div class="security-box">
+
+      <div class="security-item">
+
+        <div class="check">
+          ✓
+        </div>
+
+        <h3
+          data-en="Controlled Access"
+          data-ar="وصول متحكم به"
+        >
+          Controlled Access
+        </h3>
+
+        <p
+          data-en="Access controls help protect AI systems and data."
+          data-ar="تساعد أنظمة التحكم في الوصول على حماية أنظمة وبيانات الذكاء الاصطناعي."
+        >
+          Access controls help protect AI
+          systems and data.
+        </p>
+
+      </div>
+
+
+      <div class="security-item">
+
+        <div class="check">
+          ✓
+        </div>
+
+        <h3
+          data-en="Data Protection"
+          data-ar="حماية البيانات"
+        >
+          Data Protection
+        </h3>
+
+        <p
+          data-en="Security-focused architecture for modern digital data."
+          data-ar="بنية تركز على الأمان للبيانات الرقمية الحديثة."
+        >
+          Security-focused architecture for
+          modern digital data.
+        </p>
+
+      </div>
+
+
+      <div class="security-item">
+
+        <div class="check">
+          ✓
+        </div>
+
+        <h3
+          data-en="Continuous Monitoring"
+          data-ar="المراقبة المستمرة"
+        >
+          Continuous Monitoring
+        </h3>
+
+        <p
+          data-en="Monitor AI systems and platform activity continuously."
+          data-ar="مراقبة أنظمة الذكاء الاصطناعي ونشاط المنصة بشكل مستمر."
+        >
+          Monitor AI systems and platform
+          activity continuously.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section>
+
+    <div class="cta">
+
+      <h2>
+        <span
+          data-en="Build The Future With AI."
+          data-ar="ابنِ المستقبل بالذكاء الاصطناعي."
+        >
+          Build The Future With AI.
+        </span>
+      </h2>
+
+      <p
+        data-en="NeuralAI brings intelligent automation, analytics and digital intelligence together in one platform."
+        data-ar="تجمع NeuralAI بين الأتمتة الذكية والتحليلات والذكاء الرقمي في منصة واحدة."
+      >
+        NeuralAI brings intelligent automation,
+        analytics and digital intelligence
+        together in one platform.
+      </p>
+
+      <a
+        href="index.html#contact"
+        class="primary-btn"
+        data-en="Contact ZetraTech"
+        data-ar="تواصل مع ZetraTech"
+      >
+        Contact ZetraTech
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <span
+      data-en="© 2026 ZetraTech. All rights reserved."
+      data-ar="© 2026 ZetraTech. جميع الحقوق محفوظة."
+    >
+      © 2026 ZetraTech. All rights reserved.
+    </span>
+
+  </footer>
+
+
+  <!-- LANGUAGE SCRIPT -->
+
+  <script>
+
+    let currentLanguage =
+      localStorage.getItem("zetratechLanguage") || "en";
+
+
+    function applyLanguage(language) {
+
+      currentLanguage = language;
+
+      localStorage.setItem(
+        "zetratechLanguage",
+        language
+      );
+
+      document.documentElement.lang =
+        language;
+
+      document.documentElement.dir =
+        language === "ar"
+          ? "rtl"
+          : "ltr";
+
+      document.body.classList.toggle(
+        "rtl",
+        language === "ar"
+      );
+
+
+      document.querySelectorAll(
+        "[data-en][data-ar]"
+      ).forEach(element => {
+
+        element.textContent =
+          element.getAttribute(
+            "data-" + language
+          );
+
+      });
+
+
+      document.getElementById(
+        "languageButton"
+      ).textContent =
+        language === "en"
+          ? "العربية"
+          : "English";
+
+    }
+
+
+    function toggleLanguage() {
+
+      const newLanguage =
+        currentLanguage === "en"
+          ? "ar"
+          : "en";
+
+      applyLanguage(
+        newLanguage
+      );
+
+    }
+
+
+    applyLanguage(
+      currentLanguage
+    );
+
+  </script>
 
 </body>
+
 </html>
+#
