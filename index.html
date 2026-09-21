@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +73,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 22px;
     }
 
     .nav-links a {
@@ -99,6 +99,28 @@
       border-radius: 8px;
 
       color: white !important;
+    }
+
+    .language-button {
+      padding: 9px 13px;
+
+      background: transparent;
+
+      border: 1px solid #333;
+      border-radius: 8px;
+
+      color: #ccc;
+
+      cursor: pointer;
+
+      font-size: 13px;
+
+      transition: 0.25s;
+    }
+
+    .language-button:hover {
+      border-color: #8b5cf6;
+      color: white;
     }
 
     /* HERO */
@@ -233,10 +255,7 @@
 
     .cards {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -280,10 +299,7 @@
 
     .product-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(3, 1fr);
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
 
@@ -299,6 +315,13 @@
       border: 1px solid #222;
 
       border-radius: 16px;
+
+      transition: 0.3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      border-color: #7c3aed;
     }
 
     .product h3 {
@@ -321,10 +344,7 @@
 
     .security-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -411,6 +431,40 @@
       font-size: 13px;
     }
 
+    /* RTL */
+
+    body.rtl {
+      direction: rtl;
+    }
+
+    body.rtl nav {
+      direction: rtl;
+    }
+
+    body.rtl .nav-links {
+      direction: rtl;
+    }
+
+    body.rtl .hero,
+    body.rtl .section-title,
+    body.rtl .about,
+    body.rtl .contact-box {
+      direction: rtl;
+    }
+
+    body.rtl .card,
+    body.rtl .product,
+    body.rtl .security-card {
+      text-align: right;
+    }
+
+    body.rtl .section-title,
+    body.rtl .about,
+    body.rtl .contact-box,
+    body.rtl .hero {
+      text-align: center;
+    }
+
     /* MOBILE */
 
     @media (max-width: 900px) {
@@ -428,10 +482,11 @@
       }
 
       .nav-links {
-        gap: 12px;
+        gap: 10px;
       }
 
-      .nav-links a:not(.login-button) {
+      .nav-links a:not(.login-button),
+      .language-button {
         display: none;
       }
     }
@@ -459,7 +514,7 @@
 
   <nav>
 
-    <a href="index.html#home" class="logo">
+    <a href="#home" class="logo">
 
       <img
         src="zetratech-logo.png"
@@ -472,19 +527,44 @@
 
     <div class="nav-links">
 
-      <a href="index.html#home">Home</a>
+      <a href="#home" data-en="Home" data-ar="الرئيسية">
+        Home
+      </a>
 
-      <a href="index.html#services">Services</a>
+      <a href="#services" data-en="Services" data-ar="الخدمات">
+        Services
+      </a>
 
-      <a href="index.html#products">Products</a>
+      <a href="#products" data-en="Products" data-ar="المنتجات">
+        Products
+      </a>
 
-      <a href="index.html#security">Security</a>
+      <a href="security.html" data-en="Security" data-ar="الأمان">
+        Security
+      </a>
 
-      <a href="index.html#about">About</a>
+      <a href="#about" data-en="About" data-ar="من نحن">
+        About
+      </a>
 
-      <a href="index.html#contact">Contact</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل معنا">
+        Contact
+      </a>
 
-      <a href="login.html" class="login-button">
+      <button
+        class="language-button"
+        onclick="toggleLanguage()"
+        id="languageButton"
+      >
+        العربية
+      </button>
+
+      <a
+        href="login.html"
+        class="login-button"
+        data-en="Login"
+        data-ar="تسجيل الدخول"
+      >
         Login
       </a>
 
@@ -500,11 +580,15 @@
     <div class="hero-content">
 
       <h1>
-        Build The
-        <span>Future.</span>
+        <span data-en="Build The" data-ar="ابنِ">Build The</span>
+        <br>
+        <span data-en="Future." data-ar="المستقبل.">Future.</span>
       </h1>
 
-      <p>
+      <p
+        data-en="ZetraTech creates modern software, cybersecurity, cloud and AI solutions designed for the next generation."
+        data-ar="تقدم ZetraTech حلولًا حديثة في البرمجيات والأمن السيبراني والحوسبة السحابية والذكاء الاصطناعي للجيل القادم."
+      >
         ZetraTech creates modern software,
         cybersecurity, cloud and AI solutions
         designed for the next generation.
@@ -515,6 +599,8 @@
         <a
           href="#services"
           class="primary-btn"
+          data-en="Explore Services"
+          data-ar="استكشف الخدمات"
         >
           Explore Services
         </a>
@@ -522,6 +608,8 @@
         <a
           href="#products"
           class="secondary-btn"
+          data-en="View Products"
+          data-ar="عرض المنتجات"
         >
           View Products
         </a>
@@ -540,10 +628,18 @@
     <div class="section-title">
 
       <h2>
-        Our <span>Services</span>
+        <span
+          data-en="Our Services"
+          data-ar="خدماتنا"
+        >
+          Our Services
+        </span>
       </h2>
 
-      <p>
+      <p
+        data-en="Technology solutions built for modern businesses."
+        data-ar="حلول تقنية مصممة للشركات والأعمال الحديثة."
+      >
         Technology solutions built for modern businesses.
       </p>
 
@@ -555,9 +651,17 @@
 
         <div class="icon">💻</div>
 
-        <h3>Software</h3>
+        <h3
+          data-en="Software"
+          data-ar="البرمجيات"
+        >
+          Software
+        </h3>
 
-        <p>
+        <p
+          data-en="Modern websites, applications and custom software solutions."
+          data-ar="مواقع إلكترونية وتطبيقات وحلول برمجية مخصصة وحديثة."
+        >
           Modern websites, applications and
           custom software solutions.
         </p>
@@ -568,9 +672,17 @@
 
         <div class="icon">🛡️</div>
 
-        <h3>Cybersecurity</h3>
+        <h3
+          data-en="Cybersecurity"
+          data-ar="الأمن السيبراني"
+        >
+          Cybersecurity
+        </h3>
 
-        <p>
+        <p
+          data-en="Security solutions designed to protect systems and data."
+          data-ar="حلول أمنية مصممة لحماية الأنظمة والبيانات."
+        >
           Security solutions designed to
           protect systems and data.
         </p>
@@ -581,9 +693,17 @@
 
         <div class="icon">☁️</div>
 
-        <h3>Cloud</h3>
+        <h3
+          data-en="Cloud"
+          data-ar="الحوسبة السحابية"
+        >
+          Cloud
+        </h3>
 
-        <p>
+        <p
+          data-en="Reliable cloud infrastructure and scalable digital environments."
+          data-ar="بنية تحتية سحابية موثوقة وبيئات رقمية قابلة للتوسع."
+        >
           Reliable cloud infrastructure and
           scalable digital environments.
         </p>
@@ -594,9 +714,17 @@
 
         <div class="icon">🤖</div>
 
-        <h3>AI Solutions</h3>
+        <h3
+          data-en="AI Solutions"
+          data-ar="حلول الذكاء الاصطناعي"
+        >
+          AI Solutions
+        </h3>
 
-        <p>
+        <p
+          data-en="Intelligent systems using modern artificial intelligence technology."
+          data-ar="أنظمة ذكية تعتمد على تقنيات الذكاء الاصطناعي الحديثة."
+        >
           Intelligent systems using modern
           artificial intelligence technology.
         </p>
@@ -615,10 +743,18 @@
     <div class="section-title">
 
       <h2>
-        Our <span>Products</span>
+        <span
+          data-en="Our Products"
+          data-ar="منتجاتنا"
+        >
+          Our Products
+        </span>
       </h2>
 
-      <p>
+      <p
+        data-en="Technology products created by ZetraTech."
+        data-ar="منتجات تقنية تم تطويرها بواسطة ZetraTech."
+      >
         Technology products created by ZetraTech.
       </p>
 
@@ -626,47 +762,77 @@
 
     <div class="product-grid">
 
+      <!-- CYBERSHIELD -->
+
       <div class="product">
 
         <h3>CyberShield</h3>
 
-        <p>
+        <p
+          data-en="A modern cybersecurity platform for monitoring digital threats."
+          data-ar="منصة حديثة للأمن السيبراني لمراقبة التهديدات الرقمية."
+        >
           A modern cybersecurity platform
           for monitoring digital threats.
         </p>
 
-        <a href="cybershield.html">
+        <a
+          href="cybershield.html"
+          data-en="Explore CyberShield →"
+          data-ar="استكشف CyberShield ←"
+        >
           Explore CyberShield →
         </a>
 
       </div>
 
+
+      <!-- CLOUDCORE -->
+
       <div class="product">
 
         <h3>CloudCore</h3>
 
-        <p>
+        <p
+          data-en="Cloud infrastructure designed for scalable applications and services."
+          data-ar="بنية تحتية سحابية مصممة للتطبيقات والخدمات القابلة للتوسع."
+        >
           Cloud infrastructure designed for
           scalable applications and services.
         </p>
 
-        <a href="cloudcore.html">
+        <a
+          href="cloudcore.html"
+          data-en="Explore CloudCore →"
+          data-ar="استكشف CloudCore ←"
+        >
           Explore CloudCore →
         </a>
 
       </div>
 
+
+      <!-- NEURALAI -->
+
       <div class="product">
 
         <h3>NeuralAI</h3>
 
-        <p>
-          An AI platform concept focused on
-          intelligent digital solutions.
+        <p
+          data-en="An intelligent AI platform focused on automation, analysis and next-generation digital solutions."
+          data-ar="منصة ذكاء اصطناعي تركز على الأتمتة والتحليل وحلول الجيل القادم."
+        >
+          An intelligent AI platform focused on
+          automation, analysis and next-generation
+          digital solutions.
         </p>
 
-        <a href="#">
-          Coming Soon →
+        <a
+          href="neuralai.html"
+          data-en="Explore NeuralAI →"
+          data-ar="استكشف NeuralAI ←"
+        >
+          Explore NeuralAI →
         </a>
 
       </div>
@@ -683,10 +849,18 @@
     <div class="section-title">
 
       <h2>
-        Security <span>Center</span>
+        <span
+          data-en="Security Center"
+          data-ar="مركز الأمان"
+        >
+          Security Center
+        </span>
       </h2>
 
-      <p>
+      <p
+        data-en="Monitor your digital environment."
+        data-ar="راقب بيئتك الرقمية."
+      >
         Monitor your digital environment.
       </p>
 
@@ -700,9 +874,17 @@
           ●
         </div>
 
-        <h3>Operational</h3>
+        <h3
+          data-en="Operational"
+          data-ar="يعمل بشكل طبيعي"
+        >
+          Operational
+        </h3>
 
-        <p>
+        <p
+          data-en="Systems operating normally."
+          data-ar="الأنظمة تعمل بشكل طبيعي."
+        >
           Systems operating normally.
         </p>
 
@@ -714,9 +896,17 @@
           98%
         </div>
 
-        <h3>Security Score</h3>
+        <h3
+          data-en="Security Score"
+          data-ar="درجة الأمان"
+        >
+          Security Score
+        </h3>
 
-        <p>
+        <p
+          data-en="Current security status."
+          data-ar="حالة الأمان الحالية."
+        >
           Current security status.
         </p>
 
@@ -728,9 +918,17 @@
           ACTIVE
         </div>
 
-        <h3>Network Monitoring</h3>
+        <h3
+          data-en="Network Monitoring"
+          data-ar="مراقبة الشبكة"
+        >
+          Network Monitoring
+        </h3>
 
-        <p>
+        <p
+          data-en="Network monitoring is active."
+          data-ar="مراقبة الشبكة مفعلة."
+        >
           Network monitoring is active.
         </p>
 
@@ -742,9 +940,17 @@
           0
         </div>
 
-        <h3>Threats</h3>
+        <h3
+          data-en="Threats"
+          data-ar="التهديدات"
+        >
+          Threats
+        </h3>
 
-        <p>
+        <p
+          data-en="No active threats detected."
+          data-ar="لم يتم اكتشاف أي تهديدات نشطة."
+        >
           No active threats detected.
         </p>
 
@@ -762,14 +968,22 @@
     <div class="section-title">
 
       <h2>
-        About <span>ZetraTech</span>
+        <span
+          data-en="About ZetraTech"
+          data-ar="عن ZetraTech"
+        >
+          About ZetraTech
+        </span>
       </h2>
 
     </div>
 
     <div class="about">
 
-      <p>
+      <p
+        data-en="ZetraTech is a technology company focused on building modern digital products and solutions across software, cybersecurity, cloud computing and artificial intelligence. Our goal is simple: build technology that helps create the future."
+        data-ar="ZetraTech هي شركة تقنية تركز على بناء المنتجات والحلول الرقمية الحديثة في مجالات البرمجيات والأمن السيبراني والحوسبة السحابية والذكاء الاصطناعي. هدفنا بسيط: بناء تقنية تساعد على صناعة المستقبل."
+      >
         ZetraTech is a technology company focused
         on building modern digital products and
         solutions across software, cybersecurity,
@@ -790,10 +1004,18 @@
     <div class="section-title">
 
       <h2>
-        Get In <span>Touch</span>
+        <span
+          data-en="Get In Touch"
+          data-ar="تواصل معنا"
+        >
+          Get In Touch
+        </span>
       </h2>
 
-      <p>
+      <p
+        data-en="Let's build something together."
+        data-ar="لنبنِ شيئًا معًا."
+      >
         Let's build something together.
       </p>
 
@@ -801,11 +1023,17 @@
 
     <div class="contact-box">
 
-      <h3>
+      <h3
+        data-en="Contact ZetraTech"
+        data-ar="تواصل مع ZetraTech"
+      >
         Contact ZetraTech
       </h3>
 
-      <p>
+      <p
+        data-en="Have a project or idea? We'd love to hear about it."
+        data-ar="لديك مشروع أو فكرة؟ يسعدنا أن نسمع عنها."
+      >
         Have a project or idea?
         We'd love to hear about it.
       </p>
@@ -823,9 +1051,79 @@
 
   <footer>
 
-    © 2026 ZetraTech. All rights reserved.
+    <span
+      data-en="© 2026 ZetraTech. All rights reserved."
+      data-ar="© 2026 ZetraTech. جميع الحقوق محفوظة."
+    >
+      © 2026 ZetraTech. All rights reserved.
+    </span>
 
   </footer>
+
+
+  <!-- LANGUAGE SCRIPT -->
+
+  <script>
+
+    let currentLanguage =
+      localStorage.getItem("zetratechLanguage") || "en";
+
+
+    function applyLanguage(language) {
+
+      currentLanguage = language;
+
+      localStorage.setItem(
+        "zetratechLanguage",
+        language
+      );
+
+      document.documentElement.lang = language;
+
+      document.documentElement.dir =
+        language === "ar" ? "rtl" : "ltr";
+
+      document.body.classList.toggle(
+        "rtl",
+        language === "ar"
+      );
+
+
+      document.querySelectorAll(
+        "[data-en][data-ar]"
+      ).forEach(element => {
+
+        element.textContent =
+          element.getAttribute(
+            "data-" + language
+          );
+
+      });
+
+
+      document.getElementById(
+        "languageButton"
+      ).textContent =
+        language === "en"
+          ? "العربية"
+          : "English";
+    }
+
+
+    function toggleLanguage() {
+
+      const newLanguage =
+        currentLanguage === "en"
+          ? "ar"
+          : "en";
+
+      applyLanguage(newLanguage);
+    }
+
+
+    applyLanguage(currentLanguage);
+
+  </script>
 
 </body>
 </html>
