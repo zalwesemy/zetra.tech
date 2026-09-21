@@ -26,7 +26,6 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-
     width: 100%;
     height: 70px;
 
@@ -46,11 +45,9 @@ nav {
 .logo {
     display: flex;
     align-items: center;
-
     gap: 10px;
 
     color: white;
-
     text-decoration: none;
 
     font-size: 22px;
@@ -60,7 +57,6 @@ nav {
 .logo img {
     width: 38px;
     height: 38px;
-
     object-fit: contain;
 }
 
@@ -71,11 +67,8 @@ nav {
 
 .nav-links a {
     color: #999;
-
     text-decoration: none;
-
     font-size: 14px;
-
     transition: .3s;
 }
 
@@ -90,12 +83,14 @@ nav {
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     padding: 120px 8% 70px;
 
     position: relative;
-
     overflow: hidden;
+
+    text-align: center;
 }
 
 .hero::before {
@@ -103,8 +98,8 @@ nav {
 
     position: absolute;
 
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 
     background: #7c3aed;
 
@@ -112,15 +107,21 @@ nav {
 
     opacity: .12;
 
-    top: 80px;
-    right: -100px;
+    top: 40px;
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 850px;
 
     position: relative;
     z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .badge {
@@ -142,7 +143,7 @@ nav {
 }
 
 .hero h1 {
-    font-size: clamp(48px, 7vw, 82px);
+    font-size: clamp(52px, 8vw, 90px);
 
     line-height: 1;
 
@@ -157,7 +158,6 @@ nav {
     );
 
     -webkit-background-clip: text;
-
     -webkit-text-fill-color: transparent;
 }
 
@@ -168,13 +168,16 @@ nav {
 
     line-height: 1.7;
 
-    max-width: 650px;
+    max-width: 700px;
 
     margin-bottom: 35px;
 }
 
 .hero-buttons {
     display: flex;
+
+    justify-content: center;
+
     gap: 15px;
 
     flex-wrap: wrap;
@@ -475,6 +478,10 @@ footer {
         padding-right: 6%;
     }
 
+    .hero h1 {
+        font-size: 52px;
+    }
+
 }
 
 </style>
@@ -539,8 +546,9 @@ footer {
         </div>
 
         <h1>
-            Defend.<br>
-            Detect.<br>
+            Defend.
+            Detect.
+            <br>
             <span>Protect.</span>
         </h1>
 
